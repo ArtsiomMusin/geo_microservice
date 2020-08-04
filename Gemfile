@@ -4,9 +4,8 @@ source 'https://rubygems.org'
 
 git_source(:github) {|repo_name| 'https://github.com/#{repo_name}' }
 
-gem 'puma'
 gem 'rake'
-gem 'roda'
+gem 'bunny', '>= 2.14.1'
 
 group :development do
   gem 'byebug'
