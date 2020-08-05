@@ -9,8 +9,7 @@ queue.subscribe(manual_ack: true) do |delivery_info, properties, payload|
 
   if coordinates
     client = AdsService::Client.new
-    client.update_coordinates(payload['id'], coordinates)
+    result = client.update_coordinates(payload['id'], coordinates)
+    channel.ack(delivery_info.delivery_tag) if result.success?
   end
-
-  channel.ack(delivery_info.delivery_tag)
 end
