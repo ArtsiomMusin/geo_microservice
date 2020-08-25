@@ -1,17 +1,9 @@
-class Application < Roda
-  plugin :json
+class Application
+  def self.root
+    File.expand_path('..', __dir__)
+  end
 
-  route do |r|
-    # GET / request
-    r.root do
-      coordinates = Geocoder.geocode(request.params['city'])
-      if coordinates.nil?
-        response.status = 422
-        { error: 'City geo not found' }
-      else 
-        response.status = 200
-        coordinates
-      end
-    end
+  def self.environment
+    ENV.fetch('RACK_ENV').to_sym
   end
 end

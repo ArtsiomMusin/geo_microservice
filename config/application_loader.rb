@@ -1,9 +1,13 @@
+require 'json'
+require 'securerandom'
+
 module ApplicationLoader
   extend self
 
   def load_app!
     require_app
     init_lib
+    require_initializers
     load_debugger
   end
 
@@ -15,6 +19,10 @@ module ApplicationLoader
 
   def init_lib
     require_dir 'lib'
+  end
+
+  def require_initializers
+    require_dir 'config/initializers'
   end
 
   def load_debugger
