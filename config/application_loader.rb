@@ -1,5 +1,6 @@
 require 'json'
 require 'securerandom'
+require 'benchmark'
 
 module ApplicationLoader
   extend self

@@ -13,6 +13,10 @@ GEM
     faraday_middleware (1.0.0)
       faraday (~> 1.0)
     multipart-post (2.1.1)
+    nio4r (2.5.4)
+    prometheus-client (2.1.0)
+    puma (5.0.2)
+      nio4r (~> 2.0)
     rack (2.2.3)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -51,6 +55,9 @@ DEPENDENCIES
   dry-initializer (~> 3.0.3)
   faraday
   faraday_middleware
+  prometheus-client
+  puma
+  rack
   rake
   rspec-roda
 
